@@ -8,15 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController
-{
-    fileprivate let cellItems = ["One", "Two", "Three", "Four", "Five", "Six"]
+class ViewController: UIViewController {
+    fileprivate let cellItems = ["||", "|", "|", "|", "|"]
     
-    @IBOutlet weak var infiniteCollectionView: InfiniteCollectionView!
-    {
-        didSet
-        {
-            infiniteCollectionView.backgroundColor = UIColor.white
+    @IBOutlet weak var infiniteCollectionView: InfiniteCollectionView! {
+        didSet {
+            infiniteCollectionView.backgroundColor = UIColor.clear
             infiniteCollectionView.register(UINib(nibName: "ExampleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cellCollectionView")
             infiniteCollectionView.infiniteDataSource = self
             infiniteCollectionView.infiniteDelegate = self
@@ -24,21 +21,17 @@ class ViewController: UIViewController
         }
     }
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-extension ViewController: InfiniteCollectionViewDataSource
-{
-    func numberOfItems(_ collectionView: UICollectionView) -> Int
-    {
+extension ViewController: InfiniteCollectionViewDataSource {
+    func numberOfItems(_ collectionView: UICollectionView) -> Int {
         return cellItems.count
     }
     
-    func cellForItemAtIndexPath(_ collectionView: UICollectionView, dequeueIndexPath: IndexPath, usableIndexPath: IndexPath)  -> UICollectionViewCell
-    {
+    func cellForItemAtIndexPath(_ collectionView: UICollectionView, dequeueIndexPath: IndexPath, usableIndexPath: IndexPath)  -> UICollectionViewCell {
         let cell = infiniteCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCollectionView", for: dequeueIndexPath) as! ExampleCollectionViewCell
         cell.lbTitle.text = cellItems[usableIndexPath.row]
         cell.backgroundImage.image = UIImage(named: "cell-1")
@@ -46,10 +39,8 @@ extension ViewController: InfiniteCollectionViewDataSource
     }
 }
 
-extension ViewController: InfiniteCollectionViewDelegate
-{
-    func didSelectCellAtIndexPath(_ collectionView: UICollectionView, usableIndexPath: IndexPath)
-    {
+extension ViewController: InfiniteCollectionViewDelegate {
+    func didSelectCellAtIndexPath(_ collectionView: UICollectionView, usableIndexPath: IndexPath) {
         print("Selected cell with name \(cellItems[usableIndexPath.row])")
     }
 }

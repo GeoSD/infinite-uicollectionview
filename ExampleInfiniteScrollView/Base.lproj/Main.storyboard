@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,16 +18,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i4c-6Q-HIH" customClass="InfiniteCollectionView" customModule="ExampleInfiniteScrollView" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="250" width="600" height="100"/>
+                                <rect key="frame" x="60" y="262" width="200" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="dbW-kV-mPE"/>
+                                    <constraint firstAttribute="height" constant="45" id="dbW-kV-mPE"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wxa-73-IrY">
-                                    <size key="itemSize" width="70" height="70"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Wxa-73-IrY">
+                                    <size key="itemSize" width="14" height="45"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -30,11 +35,11 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.72156862749999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="i4c-6Q-HIH" secondAttribute="centerY" id="8QS-5s-WKp"/>
+                            <constraint firstAttribute="centerY" secondItem="i4c-6Q-HIH" secondAttribute="centerY" constant="-0.5" id="8QS-5s-WKp"/>
                             <constraint firstAttribute="centerX" secondItem="i4c-6Q-HIH" secondAttribute="centerX" id="AYL-xT-Acn"/>
-                            <constraint firstAttribute="width" secondItem="i4c-6Q-HIH" secondAttribute="width" id="bgG-mG-axc"/>
+                            <constraint firstAttribute="width" secondItem="i4c-6Q-HIH" secondAttribute="width" constant="120" id="bgG-mG-axc"/>
                         </constraints>
                     </view>
                     <connections>
