@@ -13,6 +13,9 @@ class ExampleCollectionViewCell: UICollectionViewCell
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
 
+    @IBOutlet weak var viewww: UIView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     override func awakeFromNib()
     {
         super.awakeFromNib()

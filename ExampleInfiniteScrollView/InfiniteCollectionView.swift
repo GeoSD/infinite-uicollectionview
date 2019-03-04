@@ -133,6 +133,21 @@ class InfiniteCollectionView: UICollectionView {
         let numberOfCells = infiniteDataSource?.numberOfItems(self) ?? 0
         return (CGFloat(numberOfCells) * (cellHeight + cellPadding)) - cellPadding
     }
+    
+    func setCenterCell(index: Int) {
+        shiftContentArray(index * 2 + 7)
+        reloadData()
+    }
+    
+    func turnLeft() {
+        shiftContentArray(-2)
+        reloadData()
+    }
+    
+    func turnRight() {
+        shiftContentArray(2)
+        reloadData()
+    }
 }
 
 extension InfiniteCollectionView: UICollectionViewDataSource {

@@ -9,7 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    fileprivate let cellItems = ["||", "|", "|", "|", "|"]
+    fileprivate let cellItems = (0...719).map { (cell) -> Int in
+        if cell % 60 == 0 {
+            return 2
+        } else if cell % 60 != 0 && cell % 15 == 0 {
+            return 1
+        }
+        return 0
+    }
     
     @IBOutlet weak var infiniteCollectionView: InfiniteCollectionView! {
         didSet {
@@ -23,6 +30,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        infiniteCollectionView.setCenterCell(index: 30)
+    }
+    
+    @IBAction func turnLeft(_ sender: UIButton) {
+        infiniteCollectionView.turnLeft()
+        
+    }
+    @IBAction func turnRight(_ sender: UIButton) {
+        infiniteCollectionView.turnRight()
     }
 }
 
@@ -33,14 +49,16 @@ extension ViewController: InfiniteCollectionViewDataSource {
     
     func cellForItemAtIndexPath(_ collectionView: UICollectionView, dequeueIndexPath: IndexPath, usableIndexPath: IndexPath)  -> UICollectionViewCell {
         let cell = infiniteCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCollectionView", for: dequeueIndexPath) as! ExampleCollectionViewCell
-        cell.lbTitle.text = cellItems[usableIndexPath.row]
-        cell.backgroundImage.image = UIImage(named: "cell-1")
+        cell.heightConstraint.constant = CGFloat(20 * cellItems[usableIndexPath.row])
+        cell.viewww.layoutIfNeeded()
+//        cell.lbTitle.text = cellItems[usableIndexPath.row]
+//        cell.backgroundImage.image = UIImage(named: "cell-1")
         return cell
     }
 }
 
 extension ViewController: InfiniteCollectionViewDelegate {
     func didSelectCellAtIndexPath(_ collectionView: UICollectionView, usableIndexPath: IndexPath) {
-        print("Selected cell with name \(cellItems[usableIndexPath.row])")
+        print("Selected cell with name \(usableIndexPath.row)")
     }
 }
